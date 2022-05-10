@@ -6,7 +6,16 @@
     <div class="features">
         <h1>Новости на сайте</h1>
         
-        <p>Это стадия создания сайта.</p>
-        <button clas="btn btn-warning">На страницу про нас</button>
+        {% if news %}
+            {% for el in news %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.anons }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+                <p>У вас нет записей</p>
+        {% endif %}
+        {# Так выглядит комментарий в шаблонизаторе Jinja) #}
     </div>
 {% endblock %}
